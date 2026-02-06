@@ -1,13 +1,21 @@
 <?php
 header("Content-Type: application/json");
 
-require_once "../helpers/ResponseHelper.php";
-require_once "../helpers/AuthHelper.php";
-require_once "../helpers/ValidationHelper.php";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-require_once "../controllers/PerfilController.php";
-require_once "../controllers/CategoriaController.php";
-require_once "../controllers/TransacaoController.php";
+// Caminho base do projeto (fora da pasta public)
+define('BASE_PATH', dirname(__DIR__));
+
+// Helpers
+require_once BASE_PATH . "/helpers/ResponseHelper.php";
+require_once BASE_PATH . "/helpers/AuthHelper.php";
+require_once BASE_PATH . "/helpers/ValidationHelper.php";
+
+// Controllers
+require_once BASE_PATH . "/controllers/PerfilController.php";
+require_once BASE_PATH . "/controllers/CategoriaController.php";
+require_once BASE_PATH . "/controllers/TransacaoController.php";
 
 /*
  Exemplo:
@@ -33,15 +41,15 @@ if (!$modulo || !$acao) {
 switch ($modulo) {
 
     case 'perfil':
-        require "../routes/perfil.php";
+        require BASE_PATH . "/routes/perfil.php";
         break;
 
     case 'categoria':
-        require "../routes/categoria.php";
+        require BASE_PATH . "/routes/categoria.php";
         break;
 
     case 'transacao':
-        require "../routes/transacao.php";
+        require BASE_PATH . "/routes/transacao.php";
         break;
 
     default:

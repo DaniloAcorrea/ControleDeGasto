@@ -13,3 +13,5 @@ switch ($acao) {
     default:
         ResponseHelper::error("Rota de perfil inválida", 404);
 }
+
+?>
